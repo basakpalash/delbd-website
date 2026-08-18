@@ -403,18 +403,15 @@
                 </div>
             </div>
 
-            <!-- Form integrated with Web3Forms -->
-            <form class="request-form" action="https://api.web3forms.com/submit" method="POST"
-                enctype="multipart/form-data">
+            <!-- Hidden iframe to handle the Google form submission seamlessly -->
+            <script type="text/javascript">var submitted = false;</script>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="if(submitted) { window.location='https://delbd.com/'; alert('Success! Your request has been sent to our team.'); }"></iframe>
 
-                <!-- REQUIRED: Web3Forms Access Key -->
-                <input type="hidden" name="access_key" value="2c1d2879-ac0f-4417-bfae-13f018022a08">
-
-                <!-- OPTIONAL: Subject for your email notification -->
-                <input type="hidden" name="subject" value="New Service Request from DELBD.com">
-
-                <!-- OPTIONAL: Redirect URL upon submission -->
-                <input type="hidden" name="redirect" value="https://delbd.com/">
+            <!-- Google Sheets Form (Replace YOUR_WEB_APP_URL_HERE) -->
+            <form class="request-form"
+                action="https://script.google.com/macros/s/AKfycbwaaEy9t8KLoz8lbI2PPMEl146ER1IUeqqzCK6WMoSyRldhPTJQZmAR9ifYbyOflc0ZBQ/exec"
+                method="POST" enctype="multipart/form-data" target="hidden_iframe" onsubmit="submitted=true;">
 
                 <fieldset>
                     <legend><span>01</span> Customer details</legend>
@@ -518,7 +515,7 @@
                 </fieldset>
                 <fieldset>
                     <legend><span>04</span> Files &amp; notes</legend>
-                    <label class="upload"><input type="file" name="attachment" multiple=""
+                    <label class="upload"><input type="file" name="attachment"
                             accept=".pdf,.ai,.eps,.psd,.tif,.tiff,.jpg,.jpeg,.png,.zip,.doc,.docx,.xls,.xlsx" /><span
                             class="upload-icon">＋</span><strong>Choose artwork or specification
                             files</strong><small>PDF, AI, EPS, PSD, images, Office files or ZIP</small></label>
@@ -549,8 +546,7 @@
                 <div>
                     <p>Contact</p>
                     <a href="mailto:kalim.sharafi@delbd.com">kalim.sharafi@delbd.com</a>
-                    <a href="https://wa.me/8801711522118" target="_blank" rel="noreferrer">Mobile / WhatsApp:
-                        +8801711522118</a>
+                    <a href="tel:+8801711522118">Mobile / WhatsApp: +8801711522118</a>
                 </div>
                 <div>
                     <p>Explore</p>
