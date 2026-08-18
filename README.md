@@ -1,2 +1,4 @@
 # delbd-website
-Company website for DELBD.com
+Company website for Digital Engravers Ltd.
+
+DELBD.com
