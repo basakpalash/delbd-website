@@ -585,6 +585,42 @@
             }
         });
     </script>
+
+    <!-- Fix for the Custom Checkboxes -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('.check-grid input[type="checkbox"]');
+
+            checkboxes.forEach(box => {
+                // Ensure the box shows a pointer finger when hovered
+                box.parentElement.style.cursor = 'pointer';
+
+                // Listen for clicks
+                box.addEventListener('change', function () {
+                    const checkIcon = this.nextElementSibling; // The <i>✓</i> element
+                    const labelBox = this.parentElement; // The <label> border box
+
+                    if (this.checked) {
+                        // Highlight the box and show the checkmark
+                        checkIcon.style.opacity = '1';
+                        checkIcon.style.backgroundColor = '#0f172a'; // Navy Blue
+                        checkIcon.style.borderColor = '#0f172a';
+                        checkIcon.style.color = '#ffffff';
+                        labelBox.style.borderColor = '#0f172a';
+                        labelBox.style.backgroundColor = '#f8fafc'; // Light gray highlight
+                    } else {
+                        // Reset to default empty state when unchecked
+                        checkIcon.style.opacity = '';
+                        checkIcon.style.backgroundColor = '';
+                        checkIcon.style.borderColor = '';
+                        checkIcon.style.color = '';
+                        labelBox.style.borderColor = '';
+                        labelBox.style.backgroundColor = '';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
